@@ -20,7 +20,7 @@ foreach (explode("\n", file_get_contents($argv[1])) as $row) {
     $result = json_decode(file_get_contents('https://api.exchangeratesapi.io/latest'),true);
     if(isset($result['success']) && $result['success'] != "") {
         
-        $rate = @json_decode(file_get_contents('https://api.exchangeratesapi.io/latest'), true)['rates'][$value[2]];
+        $rate = $result['rates'][$value[2]];
         if ($value[2] == 'EUR' or $rate == 0) {
             $amntFixed = $value[1];
         }
