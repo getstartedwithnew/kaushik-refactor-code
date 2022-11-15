@@ -17,7 +17,7 @@ foreach (explode("\n", file_get_contents($argv[1])) as $row) {
     $r = json_decode($binResults);
     $isEu = isEu($r->country->alpha2);
 
-    $result = json_decode(file_get_contents('https://api.exchangeratesapi.io/latest'),true);
+    $result = json_decode(file_get_contents('https://api.exchangeratesapi.io/latest?access_key=tGfyO7yagRBXGKk0KdC7TdGMiRU7403u'),true);
     if(isset($result['success']) && $result['success'] != "") {
         
         $rate = $result['rates'][$value[2]];
